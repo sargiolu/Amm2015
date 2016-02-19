@@ -85,7 +85,7 @@
 		    <ul id="orizz">
     		      <li><h1>'. $dati['nome'] .'</h1> </li>
    		      <li><p></p></li>
-   		      <li><h5>by:</h5><a href="schedaUtente.php?id='. $idUtenteCreatore .'">'. $nomeCreatore .'</a></li>
+   		      <li><h5>by:</h5><a href="profilo_certo_utente.php?id='. $idUtenteCreatore .'">'. $nomeCreatore .'</a></li>
 		    </ul><br><br>          
                     <ul id="orizz">
     		      <li><p>- '. $dati['regione'] .' -</p></li>
