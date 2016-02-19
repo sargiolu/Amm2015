@@ -5,12 +5,10 @@ session_start();
 class UserAuthentication
 {
   public $conn;
-  include "dbConfig.php";
- 
   protected function DbConnect()
   {
-    $this->conn = mysql_connect(DB_HOST,DB_USER,DB_PASS) OR die("Impossibile connettersi al database");
-    mysql_select_db(DB_NAME, $this->conn);
+    $this->conn = mysql_connect("localhost","argioluStefano","elefante2681") OR die("Impossibile connettersi al database");
+    mysql_select_db("amm15_argioluStefano", $this->conn);
   }
  
 
