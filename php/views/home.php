@@ -107,31 +107,32 @@
     		      <li><p>Non parteciperanno '. $nonPartecipanti .' </p></li>
 		          </ul><br><br>
               </div>';
-             $partecipa = $auth->ControlloSePartecipa($idUtenteCreatore,$dati['idEvento']);
+             $idUtenteLoggato = $_SESSION[user_id];
+             $partecipa = $auth->ControlloSePartecipa($idUtenteLoggato,$dati['idEvento']);
 
              if($partecipa > 0)
              {
-             $id = $auth->RecuperaIdPartecipo($idUtenteCreatore,$dati['idEvento']);
+             $id = $auth->RecuperaIdPartecipo($idUtenteLoggato,$dati['idEvento']);
              echo '<form id="login" action="../controllers/nonPartecipo.php?n=1&id='. $id .'" method="post">
                       <input type="submit" id="submit" value="Partecipo">
                   </form>
                   <hr align="center" size="1" width="78%" color="darkgrey">';
              }  
-             $forse = $auth->ControlloSeForsePartecipa($idUtenteCreatore,$dati['idEvento']);
+             $forse = $auth->ControlloSeForsePartecipa($idUtenteLoggato,$dati['idEvento']);
 
              if($forse > 0)
              {
-             $id = $auth->RecuperaIdForse($idUtenteCreatore,$dati['idEvento']);
+             $id = $auth->RecuperaIdForse($idUtenteLoggato,$dati['idEvento']);
              echo '<form id="login" action="../controllers/nonPartecipo.php?n=2&id='. $id .'" method="post">
                       <input type="submit" id="submit" value="Forse">
                   </form>
                   <hr align="center" size="1" width="78%" color="darkgrey">';
              } 
-             $nonPartecipa = $auth->ControlloSeNonPartecipa($idUtenteCreatore,$dati['idEvento']);
+             $nonPartecipa = $auth->ControlloSeNonPartecipa($idUtenteLoggato,$dati['idEvento']);
 
              if($nonPartecipa > 0)
              {
-             $id = $auth->RecuperaIdNo($idUtenteCreatore,$dati['idEvento']);
+             $id = $auth->RecuperaIdNo($idUtenteLoggato,$dati['idEvento']);
              echo '<form id="login" action="../controllers/nonPartecipo.php?n=3&id='. $id .'" method="post">
                       <input type="submit" id="submit" value="Non partecipo">
                   </form>
@@ -139,7 +140,7 @@
              } 
              if($partecipa == 0 && $forse == 0 && $nonPartecipa == 0)
              {  
-               echo '<form id="login" action="../controllers/pensieroSuEvento.php?id='. $idUtenteCreatore .'&evento='. $dati['idEvento'] .'" method="post">
+               echo '<form id="login" action="../controllers/pensieroSuEvento.php?id='. $idUtenteLoggato .'&evento='. $dati['idEvento'] .'" method="post">
                       <select id="pensiero" name="pensiero" required>
                         <option value="1">Partecipo</option>
                         <option value="2">Forse</option>
