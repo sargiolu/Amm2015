@@ -107,7 +107,7 @@
     		      <li><p>Non parteciperanno '. $nonPartecipanti .' </p></li>
 		          </ul><br><br>
               </div>';
-             $idUtenteLoggato = $_SESSION[user_id];
+             $idUtenteLoggato = $_SESSION['user_id'];
              $partecipa = $auth->ControlloSePartecipa($idUtenteLoggato,$dati['idEvento']);
 
              if($partecipa > 0)
