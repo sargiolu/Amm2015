@@ -78,6 +78,9 @@
  	    $dati = $auth->RecuperaDatiEventoRicerca($ricerca,$i);
             $idUtenteCreatore = $auth->RecuperaIdUtenteCreatore($dati['idEvento']);
             $nomeCreatore = $auth->RecuperaNomeCreatore($idUtenteCreatore);
+            $nPartecipanti = $auth->RecuperaNumeroPartecipanti($dati['idEvento']);
+            $nIdecisi = $auth->RecuperaNumeroIndecisi($dati['idEvento']);
+            $nonPartecipanti = $auth->RecuperaNumeroNonPartecipanti($dati['idEvento']);
   	    echo '<div id="blocco_evento">
 		    <ul id="orizz">
     		      <li><h1>'. $dati['nome'] .'</h1> </li>
